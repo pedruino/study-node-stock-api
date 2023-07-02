@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  node-app:
+    build: .
+    ports:
+      - "3000:3000" # Map the application port
+      - "9229:9229" # Map the debug port
+    volumes:
+      - .:/usr/src/app # Mount the code into the container
+      - /usr/src/app/node_modules # Cache node_modules in a volume
+    environment:
+      - NODE_ENV=development
